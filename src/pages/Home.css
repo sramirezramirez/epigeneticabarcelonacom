@@ -106,9 +106,8 @@
 }
 
 .benefits-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -125,10 +124,17 @@
   box-shadow: var(--shadow-lg);
 }
 
+.benefits-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .benefits-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: var(--text);
+  text-align: center;
 }
 
 .benefits-intro {

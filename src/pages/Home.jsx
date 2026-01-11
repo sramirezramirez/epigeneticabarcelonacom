@@ -17,9 +17,12 @@ function Home() {
         <div className="section-container">
           <div className="benefits-content">
             <div className="benefits-text">
-              <h2>Epigenética</h2>
+              <h2>¿Qué es la Epigenética?</h2>
               <p className="benefits-intro">
-                Bienvenido a <strong>Epigenética Barcelona</strong>.
+                La <strong>epigenética</strong> es el estudio de los cambios en la expresión de los genes que no involucran alteraciones en la secuencia del ADN. Estos cambios pueden ser influenciados por factores ambientales, estilo de vida, nutrición y experiencias, y pueden ser heredados o modificados a lo largo de la vida.
+              </p>
+              <p>
+                A diferencia de la genética tradicional, que se enfoca en el código genético en sí, la epigenética explora cómo los genes se activan o desactivan, permitiendo comprender mejor cómo nuestras decisiones y entorno pueden afectar nuestra salud y bienestar a nivel molecular.
               </p>
             </div>
           </div>
