@@ -1,23 +1,478 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Epigenética Barcelona</title>
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2PM3YKZTB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Evaluación Integral de Salud Celular y Longevidad basada en epigenética y medición antioxidante">
+  <title>Evaluación Integral de Salud Celular y Longevidad</title>
+  <style>
+    /* Reset y variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      gtag('config', 'G-Y2PM3YKZTB');
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-dark: #1e40af;
+      --color-text: #1f2937;
+      --color-text-light: #6b7280;
+      --color-bg: #ffffff;
+      --color-bg-alt: #f9fafb;
+      --color-border: #e5e7eb;
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    /* System font stack */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accesibilidad: respetar prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Sección 1: Hero */
+    .hero {
+      padding: 4rem 0 6rem;
+      background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .hero-main h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+    }
+
+    @media (min-width: 768px) {
+      .hero-main h1 {
+        font-size: 3.5rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.375rem;
+      }
+    }
+
+    .hero-micro {
+      font-size: 0.9375rem;
+      color: var(--color-text-light);
+      font-style: italic;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--color-primary);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 480px) {
+      .hero-cta {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      text-align: center;
+      transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.3);
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      text-align: center;
+      transition: color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+    }
+
+    .btn-secondary:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .hero-card {
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    .hero-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      padding: 0.75rem 0;
+      padding-left: 1.75rem;
+      position: relative;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .hero-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-success);
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    /* Sección 2: Para quién es */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-alt {
+      background-color: var(--color-bg-alt);
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--color-text);
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 3rem;
+      }
+    }
+
+    .who-list {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      list-style: none;
+    }
+
+    .who-list li {
+      padding: 1.25rem 0;
+      padding-left: 2.5rem;
+      position: relative;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .who-list li:last-child {
+      border-bottom: none;
+    }
+
+    .who-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 1.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: var(--color-success);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .notice-box {
+      max-width: 700px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      background-color: #fef3c7;
+      border-left: 4px solid var(--color-warning);
+      border-radius: var(--radius-sm);
+      color: #92400e;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* Sección 3: Qué vas a obtener */
+    #incluye {
+      scroll-margin-top: 2rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .benefit-card {
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .benefit-card p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    .callout {
+      max-width: 800px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: white;
+      border-radius: var(--radius);
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.6;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (min-width: 768px) {
+      .callout {
+        font-size: 1.5rem;
+        padding: 2.5rem;
+      }
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sección 1: Hero / Above the fold -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-main">
+          <h1>Evaluación Integral de Salud Celular y Longevidad</h1>
+          <p class="hero-subtitle">
+            Un enfoque basado en epigenética, medición antioxidante y hábitos inteligentes para mujeres que quieren prevenir antes de que aparezcan los síntomas.
+          </p>
+          <p class="hero-micro">
+            No es una consulta médica ni una charla comercial.
+          </p>
+          <div class="hero-cta">
+            <a href="#registro" class="btn-primary">Acceder a la evaluación</a>
+            <a href="#incluye" class="btn-secondary">Ver qué incluye</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Por qué esta evaluación</h3>
+          <ul>
+            <li>Prevención basada en datos</li>
+            <li>Enfoque integrativo y realista</li>
+            <li>Diseñado para mujeres con poco tiempo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2: Para quién es / Filtro elegante -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Esta evaluación es para ti si…</h2>
+      <ul class="who-list">
+        <li>Te interesa la prevención, no solo tratar síntomas</li>
+        <li>Tienes poco tiempo y buscas claridad, no confusión</li>
+        <li>Quieres decisiones basadas en ciencia, no en modas</li>
+        <li>Te importa tu salud a largo plazo y tu calidad de vida</li>
+      </ul>
+      <div class="notice-box">
+        No es para quienes buscan soluciones rápidas o milagros.
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Qué vas a obtener / Valor -->
+  <section id="incluye" class="section">
+    <div class="container">
+      <h2 class="section-title">Qué vas a obtener</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Comprensión de tu salud celular hoy</h3>
+          <p>Una visión clara de dónde te encuentras ahora, basada en mediciones objetivas y análisis de tu estado actual.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Qué factores pueden influir silenciosamente</h3>
+          <p>Identificación de estrés, inflamación y hábitos que pueden estar afectando tu salud sin que lo notes.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Por qué la epigenética cambia la forma de prevenir</h3>
+          <p>Comprensión de cómo tus decisiones y entorno influyen en la expresión de tus genes y tu bienestar.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Cómo medir y no solo suponer</h3>
+          <p>Acceso a herramientas de medición antioxidante y biomarcadores que te dan datos reales, no conjeturas.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Opciones para acompañamiento personalizado</h3>
+          <p>Rutas claras y prácticas para implementar cambios basados en tus resultados y objetivos específicos.</p>
+        </div>
+      </div>
+      <div class="callout">
+        La prevención real comienza antes del diagnóstico.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scroll para anclas (fallback para navegadores que no lo soporten nativamente)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const offsetTop = target.offsetTop - 20;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Mejora de accesibilidad: focus visible en botones
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+      button.addEventListener('focus', function() {
+        this.style.outline = '3px solid rgba(37, 99, 235, 0.3)';
+        this.style.outlineOffset = '2px';
+      });
+    });
+  </script>
+</body>
 </html>

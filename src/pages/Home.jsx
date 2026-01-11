@@ -1,4 +1,5 @@
 import config from '../config';
+import cespedNegroEtiqueta from '../images/cesped_negro_etiqueta.png';
 import './Home.css';
 
 function Home() {
@@ -17,6 +18,9 @@ function Home() {
         <div className="section-container">
           <div className="benefits-content">
             <div className="benefits-text">
+              <div className="epigenetics-image">
+                <img src={cespedNegroEtiqueta} alt="Epigenética" />
+              </div>
               <h2>¿Qué es la Epigenética?</h2>
               <p className="benefits-intro">
                 La <strong>epigenética</strong> es el estudio de los cambios en la expresión de los genes que no involucran alteraciones en la secuencia del ADN. Estos cambios pueden ser influenciados por factores ambientales, estilo de vida, nutrición y experiencias, y pueden ser heredados o modificados a lo largo de la vida.

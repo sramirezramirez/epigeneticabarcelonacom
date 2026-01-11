@@ -130,6 +130,21 @@
   margin: 0 auto;
 }
 
+.epigenetics-image {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.epigenetics-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
 .benefits-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
