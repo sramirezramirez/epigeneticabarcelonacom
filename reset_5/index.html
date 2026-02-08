@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/reset_5/">
+    <title>RESET 5 Días - Guía Interactiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfaf7;
+            color: #2d3436;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .breathing-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            transition: all 4s ease-in-out;
+        }
+
+        .step-hidden { display: none; }
+
+        .meal-badge {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .prompt-pill {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background-color: #f0f0f0;
+            display: block;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e2e8f0;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.75rem;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <header class="p-6 text-center gradient-bg border-b">
+        <h1 class="text-3xl font-bold text-green-800 tracking-tight">RESET 5 DÍAS</h1>
+        <p class="text-gray-600 mt-2 text-sm uppercase tracking-widest text-balance">Metabolismo · Desinflamación · Calma</p>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="flex justify-around bg-white sticky top-0 z-10 shadow-sm overflow-x-auto">
+        <button onclick="showSection('morning')" id="nav-morning" class="py-4 px-4 font-semibold tab-active whitespace-nowrap">Rituales</button>
+        <button onclick="showSection('menu')" id="nav-menu" class="py-4 px-4 font-semibold text-gray-500 whitespace-nowrap">Menú 5 Días</button>
+        <button onclick="showSection('day')" id="nav-day" class="py-4 px-4 font-semibold text-gray-500 whitespace-nowrap">Postura/Mov.</button>
+        <button onclick="showSection('night')" id="nav-night" class="py-4 px-4 font-semibold text-gray-500 whitespace-nowrap">Cierre Noche</button>
+    </nav>
+
+    <main class="max-w-md mx-auto p-4 pb-24">
+
+        <!-- SECCIÓN: MAÑANA (RITUALES) -->
+        <section id="section-morning" class="space-y-6">
+            <!-- Imagen del raspador -->
+            <img src="https://raw.githubusercontent.com/sramirezramirez/epigeneticabarcelonacom/main/src/images/raspador.jpg" 
+                 alt="Raspador de lengua" 
+                 class="section-image"
+                 onerror="this.style.display='none'">
+            
+            <div class="card p-6 border-l-4 border-green-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="tongue" class="text-green-600"></i>
+                    <h2 class="text-xl font-bold">1. Raspado de Lengua</h2>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">Elimina el <strong>Ama</strong> (toxinas acumuladas) antes de ingerir nada.</p>
+                <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                    <li>Raspa de atrás hacia adelante 5-7 veces.</li>
+                    <li>Limpia el raspador tras cada pasada.</li>
+                    <li>Siente el frescor y la limpieza en tu boca.</li>
+                    <li><strong>Opcional:</strong> utilizar como colutorio para enjuague bucal aceite de coco (por sus propiedades antibacteriales). Ayuda a reducir la placa dental.</li>
+                </ol>
+            </div>
+
+            <div class="card p-6 border-l-4 border-blue-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="droplet" class="text-blue-500"></i>
+                    <h2 class="text-xl font-bold">2. Agua Tibia</h2>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">Hidratación consciente para activar el Agni.</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Agua Tibia</span>
+                    <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">+ Limón/Jengibre</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: MENÚ 5 DÍAS -->
+        <section id="section-menu" class="space-y-6 step-hidden">
+            <img src="https://raw.githubusercontent.com/sramirezramirez/epigeneticabarcelonacom/main/comida.png" 
+                 alt="Plan nutricional saludable" 
+                 class="section-image"
+                 onerror="this.style.display='none'">
+            
+            <h2 class="text-2xl font-bold text-green-800 text-center mb-2">Plan Nutricional</h2>
+            <p class="text-xs text-gray-500 text-center mb-6">Un ciclo de 5 días para soltar y reparar</p>
+            
+            <div class="card p-5 bg-green-50/50">
+                <h3 class="font-bold text-green-700 mb-3 border-b border-green-200 pb-1 uppercase text-xs tracking-wider">DÍA 1: Limpieza Inicial</h3>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div><span class="meal-badge bg-orange-100 text-orange-700">Desayuno</span> Avena caliente con manzana y canela.</div>
+                    <div><span class="meal-badge bg-green-100 text-green-700">Comida</span> Arroz basmati con zanahorias al vapor y jengibre.</div>
+                    <div><span class="meal-badge bg-blue-100 text-blue-700">Merienda</span> Infusión de jengibre fresco.</div>
+                    <div><span class="meal-badge bg-purple-100 text-purple-700">Cena</span> Crema de calabacín caliente.</div>
+                </div>
+            </div>
+
+            <div class="card p-5">
+                <h3 class="font-bold text-green-700 mb-3 border-b border-green-200 pb-1 uppercase text-xs tracking-wider">DÍA 2: Activar Digestión</h3>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div><span class="meal-badge bg-orange-100 text-orange-700">Desayuno</span> Manzana asada con cardamomo.</div>
+                    <div><span class="meal-badge bg-green-100 text-green-700">Comida</span> Arroz basmati con calabacín y zanahoria (bien cocidos).</div>
+                    <div><span class="meal-badge bg-blue-100 text-blue-700">Merienda</span> Infusión de hinojo.</div>
+                    <div><span class="meal-badge bg-purple-100 text-purple-700">Cena</span> Sopa de verduras ligera con cilantro.</div>
+                </div>
+            </div>
+
+            <div class="card p-5 bg-green-50/50">
+                <h3 class="font-bold text-green-700 mb-3 border-b border-green-200 pb-1 uppercase text-xs tracking-wider">DÍA 3: Desinflamar</h3>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div><span class="meal-badge bg-orange-100 text-orange-700">Desayuno</span> Gachas de mijo o avena muy suave.</div>
+                    <div><span class="meal-badge bg-green-200 text-green-800">Comida</span> <strong>Arroz basmati con verduras al vapor:</strong> Calabacín, zanahoria o brócoli.</div>
+                    <div><span class="meal-badge bg-blue-100 text-blue-700">Merienda</span> Infusión de anís estrellado.</div>
+                    <div><span class="meal-badge bg-purple-100 text-purple-700">Cena</span> Crema de calabaza con una pizca de jengibre.</div>
+                </div>
+            </div>
+
+            <div class="card p-5">
+                <h3 class="font-bold text-green-700 mb-3 border-b border-green-200 pb-1 uppercase text-xs tracking-wider">DÍA 4: Drenar</h3>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div><span class="meal-badge bg-orange-100 text-orange-700">Desayuno</span> Compota de pera templada con jengibre.</div>
+                    <div><span class="meal-badge bg-green-100 text-green-700">Comida</span> Espárragos trigueros al vapor con arroz basmati e hinojo.</div>
+                    <div><span class="meal-badge bg-blue-100 text-blue-700">Merienda</span> Infusión de diente de león.</div>
+                    <div><span class="meal-badge bg-purple-100 text-purple-700">Cena</span> Caldo depurativo de apio, cebolla y perejil.</div>
+                </div>
+            </div>
+
+            <div class="card p-5 bg-green-50/50">
+                <h3 class="font-bold text-green-700 mb-3 border-b border-green-200 pb-1 uppercase text-xs tracking-wider">DÍA 5: Integrar</h3>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div><span class="meal-badge bg-orange-100 text-orange-700">Desayuno</span> Avena con especias suaves (canela, cardamomo).</div>
+                    <div><span class="meal-badge bg-green-100 text-green-700">Comida</span> Verduras variadas al vapor con quinoa o arroz basmati.</div>
+                    <div><span class="meal-badge bg-blue-100 text-blue-700">Merienda</span> Infusión de Tulsi o menta.</div>
+                    <div><span class="meal-badge bg-purple-100 text-purple-700">Cena</span> Crema de verduras mixtas simple y caliente.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: DÍA (POSTURA/MOVIMIENTO) -->
+        <section id="section-day" class="space-y-6 step-hidden">
+            <img src="https://raw.githubusercontent.com/sramirezramirez/epigeneticabarcelonacom/main/respira.jpeg" 
+                 alt="Respiración consciente" 
+                 class="section-image"
+                 onerror="this.style.display='none'">
+            
+            <div class="card p-6">
+                <h2 class="text-xl font-bold mb-4">Postura y Sistema Nervioso</h2>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <div class="p-4 bg-green-50 border border-green-100 rounded-xl text-center">
+                        <i data-lucide="shield-check" class="mx-auto text-green-600 mb-2"></i>
+                        <p class="text-xs font-bold text-green-600 uppercase">Pecho Abierto</p>
+                        <p class="text-[9px] text-gray-500">Confianza Cerebral</p>
+                    </div>
+                    <div class="p-4 bg-red-50 border border-red-50 rounded-xl text-center opacity-60">
+                        <i data-lucide="alert-triangle" class="mx-auto text-red-400 mb-2"></i>
+                        <p class="text-xs font-bold text-red-400 uppercase">Cuerpo Cerrado</p>
+                        <p class="text-[9px] text-gray-500">Señal de Estrés</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-6">
+                <h2 class="text-xl font-bold mb-4">Hábitos de Bienestar</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="p-2 bg-indigo-50 rounded-lg"><i data-lucide="footprints" class="text-indigo-600 w-5 h-5"></i></div>
+                        <div>
+                            <p class="font-bold text-sm">Caminata de 20 min</p>
+                            <p class="text-xs text-gray-500">Sincroniza tus hemisferios y reduce el ruido mental.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="p-2 bg-yellow-50 rounded-lg"><i data-lucide="sun" class="text-yellow-600 w-5 h-5"></i></div>
+                        <div>
+                            <p class="font-bold text-sm">Luz Solar</p>
+                            <p class="text-xs text-gray-500">Tomar 10 minutos de sol a primeras horas del día para regular tu ritmo circadiano.</p>
+                        </div>
+                    </div>
+
+                    <!-- Nuevo Hábito de Expresión y Gratitud -->
+                    <div class="flex items-start gap-4">
+                        <div class="p-2 bg-pink-50 rounded-lg"><i data-lucide="heart" class="text-pink-600 w-5 h-5"></i></div>
+                        <div>
+                            <p class="font-bold text-sm">Expresión y Gratitud🙏</p>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Realiza gestos suaves que permitan a tu cuerpo expresarse: estírate, gira los hombros, sonríe, o haz un pequeño baile. Hazlo con una intención de gratitud.
+                            </p>
+                            
+                            <!-- Botón Beneficios Interactivos -->
+                            <button onclick="toggleBenefits()" class="text-[10px] font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full hover:bg-green-100 transition-colors mt-3 uppercase tracking-wider flex items-center gap-1">
+                                <i data-lucide="info" class="w-3 h-3"></i> Beneficios
+                            </button>
+                            
+                            <div id="movement-benefits" class="hidden mt-3 space-y-2 text-[10px] text-gray-600 border-t border-pink-100 pt-3 animate-fade-in">
+                                <p class="flex gap-2"><span>•</span> Tu cerebro recibe el mensaje de <strong>"estoy presente"</strong>.</p>
+                                <p class="flex gap-2"><span>•</span> Mantener una postura erguida por solo 2 minutos puede aumentar la liberación de <strong>dopamina y serotonina</strong>, neurotransmisores del bienestar y la autoconfianza.</p>
+                                <p class="flex gap-2"><span>•</span> Estos movimientos, asociados a emociones positivas, activan áreas cerebrales que liberan dopamina, generando un <strong>impulso vital</strong>.</p>
+                                <p class="flex gap-2"><span>•</span> Es una <strong>reprogramación química real</strong> que te conecta con el bienestar antes de dormir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: NOCHE -->
+        <section id="section-night" class="space-y-6 step-hidden">
+            <img src="https://raw.githubusercontent.com/sramirezramirez/epigeneticabarcelonacom/main/noche.png" 
+                 alt="Cierre noche" 
+                 class="section-image"
+                 onerror="this.style.display='none'">
+            
+            <div class="card p-8 text-center bg-[#fffbf0] border border-orange-50">
+                <h2 class="text-xl font-bold mb-2 text-orange-900">Activa tu Calma (4-7-8)</h2>
+                <p class="text-[10px] text-orange-700 mb-4 font-semibold uppercase tracking-wider">Dos series completas</p>
+                <div id="breathing-circle" class="breathing-circle shadow-inner">
+                    <span id="breathing-text" class="text-xl font-bold text-orange-800">INICIAR</span>
+                </div>
+                <button onclick="startBreathing()" class="mt-8 btn-primary w-full shadow-lg bg-orange-600 hover:bg-orange-700 border-none">Respirar</button>
+            </div>
+
+            <div class="card p-6 bg-[#4a3728] text-[#efebe9] shadow-2xl border border-[#5d4037]">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="feather" class="w-5 h-5 text-orange-300"></i>
+                        <h2 class="text-xl font-bold tracking-tight">Vaciado Mental</h2>
+                    </div>
+                    <button onclick="clearBrainDump()" class="text-[10px] font-bold text-orange-200 border border-orange-200/30 px-3 py-1 rounded-full uppercase">Vaciar</button>
+                </div>
+                <textarea id="brain-dump-area" class="w-full h-44 bg-[#5d4037] text-[#fbe9e7] p-4 rounded-xl border border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400/30 text-sm placeholder-[#a1887f]" placeholder="Deja tus pensamientos aquí..."></textarea>
+                <div class="mt-4 p-3 bg-[#3e2723]/50 rounded-lg text-center">
+                    <p class="text-xs text-orange-300 italic">"Y por hoy, me doy permiso para descansar."</p>
+                </div>
+            </div>
+
+            <div class="card p-6 bg-[#fff7ed] border border-orange-200">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="sparkles" class="text-orange-500 w-5 h-5"></i>
+                    <h2 class="text-lg font-bold text-orange-900">Frases para cerrar de día</h2>
+                </div>
+                <div class="space-y-3">
+                    <div class="prompt-pill border-orange-100 bg-white/60">
+                        <p class="font-bold text-orange-800 text-[11px] uppercase tracking-wide">Si hay miedo</p>
+                        <p class="italic text-gray-700">"Lo suelto y lo dejo ir. Estoy a salvo aquí."</p>
+                    </div>
+                    <div class="prompt-pill border-blue-100 bg-white/60">
+                        <p class="font-bold text-blue-800 text-[11px] uppercase tracking-wide">Si hay tareas pendientes</p>
+                        <p class="italic text-gray-700">"Lo aparco solo por hoy. Mañana será otro día."</p>
+                    </div>
+                    <div class="prompt-pill border-green-100 bg-white/60">
+                        <p class="font-bold text-green-800 text-[11px] uppercase tracking-wide">Si no sabes la solución</p>
+                        <p class="italic text-gray-700">"Agradezco mi capacidad; mañana seré capaz de solucionar."</p>
+                    </div>
+                    <div class="prompt-pill border-purple-100 bg-white/60">
+                        <p class="font-bold text-purple-800 text-[11px] uppercase tracking-wide">Si el día fue duro</p>
+                        <p class="italic text-gray-700">"Agradezco lo bueno vivido y dejo ir lo malo con mi exhalación."</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(s => s.classList.add('step-hidden'));
+            document.querySelectorAll('nav button').forEach(b => {
+                b.classList.remove('tab-active');
+                b.classList.add('text-gray-500');
+            });
+
+            document.getElementById('section-' + id).classList.remove('step-hidden');
+            document.getElementById('nav-' + id).classList.add('tab-active');
+            document.getElementById('nav-' + id).classList.remove('text-gray-500');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Función para desplegar beneficios
+        function toggleBenefits() {
+            const el = document.getElementById('movement-benefits');
+            el.classList.toggle('hidden');
+        }
+
+        function startBreathing() {
+            const circle = document.getElementById('breathing-circle');
+            const text = document.getElementById('breathing-text');
+            
+            const singleCycle = [
+                { text: 'Inhala', time: 4000, scale: 1.6, color: '#fff3e0' },
+                { text: 'Mantén', time: 7000, scale: 1.6, color: '#ffe0b2' },
+                { text: 'Exhala', time: 8000, scale: 1.0, color: '#ffffff' }
+            ];
+
+            let sequence = [...singleCycle, ...singleCycle];
+            let i = 0;
+
+            function run() {
+                if (i >= sequence.length) { 
+                    text.innerText = "CALMA LOGRADA"; 
+                    circle.style.backgroundColor = 'rgba(255, 167, 38, 0.1)';
+                    return; 
+                }
+                
+                let step = sequence[i];
+                const currentSeries = Math.floor(i / 3) + 1;
+                
+                text.innerText = `${step.text} (${currentSeries}/2)`;
+                circle.style.transform = `scale(${step.scale})`;
+                circle.style.backgroundColor = step.color;
+                
+                setTimeout(() => { i++; run(); }, step.time);
+            }
+            run();
+        }
+
+        function clearBrainDump() {
+            document.getElementById('brain-dump-area').value = "";
+        }
+    </script>
+</body>
+</html>
