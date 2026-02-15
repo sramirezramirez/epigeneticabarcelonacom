@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/reset_21/">
+    <title>RESET 21 Días - Guía Interactiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfaf7; color: #2d3436; }
+        .gradient-bg { background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%); }
+        .card { background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.2s ease; }
+        .tab-active { border-bottom: 3px solid #4caf50; color: #2e7d32; }
+        .step-hidden { display: none; }
+        .meal-badge { font-size: 0.65rem; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 4px; }
+        .prompt-pill { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 12px; font-size: 0.8rem; line-height: 1.4; border: 1px solid transparent; }
+        .btn-primary { background-color: #4caf50; color: white; padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; }
+        .section-image { width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background-color: #f0f0f0; display: block; }
+        .breathing-circle { width: 200px; height: 200px; border-radius: 50%; background: rgba(76,175,80,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto; position: relative; transition: all 4s ease-in-out; }
+        .accordion-toggle { width: 100%; text-align: left; padding: 1rem 1.25rem; font-weight: 600; background: #f0fdf4; border: 2px solid #86efac; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-toggle:hover { background: #dcfce7; }
+        .accordion-panel { display: none; padding: 1rem; }
+        .accordion-panel.open { display: block; }
+        .phase-card { background: #f8faf8; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #4caf50; }
+        .day-row { padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; font-size: 0.875rem; }
+        .list-group { margin: 0.5rem 0; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+
+<header class="p-6 text-center gradient-bg border-b">
+    <h1 class="text-3xl font-bold text-green-800 tracking-tight">RESET 21 DÍAS</h1>
+    <p class="text-gray-600 mt-2 text-sm uppercase tracking-widest text-balance">Metabolismo · Desinflamación · Calma</p>
+</header>
+
+<nav class="flex justify-around bg-white sticky top-0 z-10 shadow-sm overflow-x-auto">
+    <button onclick="showSection('morning')" id="nav-morning" class="py-4 px-3 font-semibold tab-active whitespace-nowrap">Rituales</button>
+    <button onclick="showSection('menu')" id="nav-menu" class="py-4 px-3 font-semibold text-gray-500 whitespace-nowrap">Menú 21 Días</button>
+    <button onclick="showSection('micro')" id="nav-micro" class="py-4 px-3 font-semibold text-gray-500 whitespace-nowrap">Micro-reto</button>
+    <button onclick="showSection('night')" id="nav-night" class="py-4 px-3 font-semibold text-gray-500 whitespace-nowrap">Cierre Noche</button>
+</nav>
+
+<main class="max-w-md mx-auto p-4 pb-24">
+
+    <!-- SECCIÓN: RITUALES -->
+    <section id="section-morning" class="space-y-6">
+        <img src="/raspado.png" alt="Raspador de lengua" class="section-image" onerror="this.style.display='none'">
+        
+        <div class="card p-6 border-l-4 border-green-500">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="tongue" class="text-green-600"></i>
+                <h2 class="text-xl font-bold">1. Raspado de Lengua (cada día)</h2>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Elimina el <strong>Ama</strong> (toxinas acumuladas) antes de ingerir nada.</p>
+            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                <li>Raspa de atrás hacia adelante 5-7 veces.</li>
+                <li>Limpia el raspador tras cada pasada.</li>
+                <li>Siente el frescor y la limpieza en tu boca.</li>
+                <li><strong>Opcional:</strong> enjuague bucal con aceite de coco.</li>
+            </ol>
+        </div>
+
+        <div class="card p-6 border-l-4 border-blue-400">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="droplet" class="text-blue-500"></i>
+                <h2 class="text-xl font-bold">2. Bebida de la mañana (cada día intercalar)</h2>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Elige una opción y varía a lo largo de la semana:</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+                <li>• Agua tibia</li>
+                <li>• Infusión jengibre</li>
+                <li>• Infusión hinojo o anís</li>
+                <li>• Agua tibia con limón</li>
+                <li>• Agua tibia con una cucharita de vinagre</li>
+            </ul>
+        </div>
+
+        <!-- 3 Fases desplegables - Objetivos por día -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('fases-objetivos')" class="accordion-toggle" aria-expanded="false" id="btn-fases-objetivos">
+                <span>3 Fases – Objetivos por día</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 accordion-icon"></i>
+            </button>
+            <div id="fases-objetivos" class="accordion-panel">
+                <!-- Fase 1 -->
+                <button type="button" onclick="toggleAccordion('objetivos-f1')" class="accordion-toggle mt-3 bg-green-50 border-green-200">
+                    <span>Fase 1 – BAJAR EL RUIDO (Días 1-7)</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <div id="objetivos-f1" class="accordion-panel">
+                    <div class="phase-card"><strong>Día 1:</strong> Crear espacio interno y disminuir sobreestimulación inicial.</div>
+                    <div class="phase-card"><strong>Día 2:</strong> Reducir activación durante la digestión (comer sin distracciones).</div>
+                    <div class="phase-card"><strong>Día 3:</strong> Reconectar con señales corporales internas.</div>
+                    <div class="phase-card"><strong>Día 4:</strong> Mejorar la transición hacia el descanso nocturno.</div>
+                    <div class="phase-card"><strong>Día 5:</strong> Estabilizar horarios y generar previsibilidad biológica.</div>
+                    <div class="phase-card"><strong>Día 6:</strong> Liberar tensión acumulada física y mental.</div>
+                    <div class="phase-card"><strong>Día 7:</strong> Evaluar sin juicio y observar cambios iniciales.</div>
+                </div>
+                <!-- Fase 2 -->
+                <button type="button" onclick="toggleAccordion('objetivos-f2')" class="accordion-toggle mt-3 bg-green-50 border-green-200">
+                    <span>Fase 2 – DESINFLAMAR Y ESTABILIZAR (Días 8-14)</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <div id="objetivos-f2" class="accordion-panel">
+                    <div class="phase-card"><strong>Día 8:</strong> Incrementar fibra prebiótica para apoyo intestinal.</div>
+                    <div class="phase-card"><strong>Día 9:</strong> Mejorar estabilidad glucémica matinal mediante proteína adecuada.</div>
+                    <div class="phase-card"><strong>Día 10:</strong> Regular ritmo de comidas para optimizar señal metabólica.</div>
+                    <div class="phase-card"><strong>Día 11:</strong> Apoyar diversidad de microbiota con fermentados suaves.</div>
+                    <div class="phase-card"><strong>Día 12:</strong> Mejorar calidad de sueño para favorecer regulación hormonal.</div>
+                    <div class="phase-card"><strong>Día 13:</strong> Estimular sensibilidad metabólica con fuerza suave.</div>
+                    <div class="phase-card"><strong>Día 14:</strong> Evaluar estabilidad metabólica y cambios inflamatorios.</div>
+                </div>
+                <!-- Fase 3 -->
+                <button type="button" onclick="toggleAccordion('objetivos-f3')" class="accordion-toggle mt-3 bg-green-50 border-green-200">
+                    <span>Fase 3 – REPROGRAMAR Y CONSOLIDAR (Días 15-21)</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <div id="objetivos-f3" class="accordion-panel">
+                    <div class="phase-card"><strong>Día 15:</strong> Estimular función mitocondrial mediante entrenamiento de fuerza.</div>
+                    <div class="phase-card"><strong>Día 16:</strong> Reforzar ritmo circadiano con luz natural y reducción de pantallas.</div>
+                    <div class="phase-card"><strong>Día 17:</strong> Consolidar regulación a través de movimiento consciente.</div>
+                    <div class="phase-card"><strong>Día 18:</strong> Mantener coherencia horaria y consistencia metabólica.</div>
+                    <div class="phase-card"><strong>Día 19:</strong> Profundizar regulación autonómica con respiración estructurada.</div>
+                    <div class="phase-card"><strong>Día 20:</strong> Medir progreso energético y consolidar percepción de avance.</div>
+                    <div class="phase-card"><strong>Día 21:</strong> Integrar aprendizajes y establecer continuidad sostenible.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: MENÚ 21 DÍAS -->
+    <section id="section-menu" class="space-y-6 step-hidden">
+        <img src="/comida.png" alt="Plan 21 días" class="section-image" onerror="this.style.display='none'">
+        <h2 class="text-2xl font-bold text-green-800 text-center mb-2">Menú 21 Días</h2>
+        <p class="text-xs text-gray-500 text-center mb-6">Tres fases con lista de la compra y menú día a día</p>
+
+        <!-- FASE 1 Menú -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('menu-f1')" class="accordion-toggle">
+                <span>Fase 1 – BAJAR EL RUIDO (Días 1-7)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="menu-f1" class="accordion-panel">
+                <h3 class="font-bold text-green-700 mt-3 mb-2">🛒 Lista de la compra – Semana 1</h3>
+                <div class="grid grid-cols-1 gap-2 text-sm">
+                    <p><strong>🥬 Verduras:</strong> Calabacín, Calabaza, Zanahoria, Espinaca, Boniato, Puerro, Rúcula</p>
+                    <p><strong>🥩 Proteínas:</strong> Huevos, Salmón, Pescado blanco, Pollo, Lenteja roja</p>
+                    <p><strong>🌾 Cereales:</strong> Avena sin gluten, Arroz basmati</p>
+                    <p><strong>🥑 Grasas:</strong> AOVE, Nueces, Semillas de chía</p>
+                    <p><strong>🌿 Especias:</strong> Cúrcuma, Jengibre, Canela, Limón, Vinagre de manzana</p>
+                    <p><strong>🍓 Fruta:</strong> Frutos rojos</p>
+                </div>
+                <h3 class="font-bold text-green-700 mt-4 mb-2">📅 Menú día a día – Semana 1</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 1</span> Desayuno: Porridge avena + frutos rojos + chía. Comida: Crema calabacín + lenteja roja. Cena: Puré calabaza + pescado blanco.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 2</span> Desayuno: Huevos + espinaca + boniato. Comida: Arroz basmati + salmón + verduras. Cena: Sopa puerro y zanahoria.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 3</span> Desayuno: Yogur + nueces + canela. Comida: Bowl boniato + pollo + rúcula. Cena: Verduras al horno + hummus.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 4</span> Desayuno: Porridge antiinflamatorio. Comida: Crema calabaza + arroz basmati. Cena: Pescado blanco + calabacín.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 5</span> Desayuno: Huevos + espinaca. Comida: Lenteja roja estofada. Cena: Puré zanahoria + salmón.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 6</span> Desayuno: Yogur + semillas + frutos rojos. Comida: Arroz + pollo + verduras. Cena: Sopa ligera vegetal.</div>
+                    <div class="day-row"><span class="meal-badge bg-orange-100 text-orange-700">Día 7</span> Desayuno: Porridge + nueces. Comida: Salmón al horno + boniato. Cena: Crema suave de verduras.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 2 Menú -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('menu-f2')" class="accordion-toggle">
+                <span>Fase 2 – DESINFLAMAR Y ESTABILIZAR (Días 8-14)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="menu-f2" class="accordion-panel">
+                <h3 class="font-bold text-green-700 mt-3 mb-2">🛒 Lista de la compra – Semana 2</h3>
+                <div class="grid grid-cols-1 gap-2 text-sm">
+                    <p><strong>🥬 Verduras:</strong> Brócoli, Hinojo, Espárragos, Calabacín, Rúcula, Espinaca, Champiñones</p>
+                    <p><strong>🥩 Proteínas:</strong> Huevos, Pescado azul, Tofu, Garbanzos, Lentejas</p>
+                    <p><strong>🌾 Cereales:</strong> Quinoa, Semillas de chía</p>
+                    <p><strong>🥑 Grasas:</strong> AOVE</p>
+                    <p><strong>🧴 Fermentados:</strong> Miso, Yogur natural</p>
+                    <p><strong>🍓 Frutas:</strong> Arándanos</p>
+                </div>
+                <h3 class="font-bold text-green-700 mt-4 mb-2">📅 Menú día a día – Semana 2</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 8</span> Desayuno: Tortilla vegetal. Comida: Quinoa + brócoli + garbanzos. Cena: Crema de hinojo.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 9</span> Desayuno: Yogur + semillas + arándanos. Comida: Pescado azul + verduras asadas. Cena: Salteado + tofu.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 10</span> Desayuno: Pudding chía. Comida: Lentejas con verduras. Cena: Sopa de miso.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 11</span> Desayuno: Huevos + espinaca. Comida: Quinoa + verduras. Cena: Crema vegetal.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 12</span> Desayuno: Yogur + nueces. Comida: Garbanzos + calabacín + rúcula. Cena: Pescado azul + espárragos.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 13</span> Desayuno: Tortilla + champiñones. Comida: Lentejas + brócoli. Cena: Sopa ligera.</div>
+                    <div class="day-row"><span class="meal-badge bg-green-100 text-green-700">Día 14</span> Desayuno: Pudding chía + frutos rojos. Comida: Quinoa + tofu + verduras. Cena: Crema de hinojo.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 3 Menú -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('menu-f3')" class="accordion-toggle">
+                <span>Fase 3 – REPROGRAMAR Y CONSOLIDAR (Días 15-21)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="menu-f3" class="accordion-panel">
+                <h3 class="font-bold text-green-700 mt-3 mb-2">🛒 Lista de la compra – Semana 3</h3>
+                <div class="grid grid-cols-1 gap-2 text-sm">
+                    <p><strong>🥬 Verduras:</strong> Espárragos, Brócoli, Espinaca, Calabaza, Calabacín, Tomate, Pepino</p>
+                    <p><strong>🥩 Proteínas:</strong> Huevos, Salmón, Pollo</p>
+                    <p><strong>🌾 Cereales:</strong> Quinoa</p>
+                    <p><strong>🥑 Grasas:</strong> Aguacate, AOVE, Semillas</p>
+                </div>
+                <h3 class="font-bold text-green-700 mt-4 mb-2">📅 Menú día a día – Semana 3</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 15</span> Desayuno: Huevos + aguacate. Comida: Salmón + espárragos. Cena: Crema vegetal.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 16</span> Desayuno: Smoothie verde. Comida: Pollo + verduras asadas. Cena: Verduras + huevo.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 17</span> Desayuno: Porridge proteico. Comida: Bowl mediterráneo. Cena: Sopa vegetal.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 18</span> Desayuno: Huevos + espinaca. Comida: Salmón + brócoli. Cena: Crema calabaza.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 19</span> Desayuno: Smoothie verde. Comida: Pollo + quinoa + verduras. Cena: Verduras al vapor + huevo.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 20</span> Desayuno: Porridge + semillas. Comida: Salmón + espárragos. Cena: Sopa ligera.</div>
+                    <div class="day-row"><span class="meal-badge bg-blue-100 text-blue-700">Día 21</span> Desayuno: Huevos + aguacate. Comida: Bowl mediterráneo. Cena: Crema suave integradora.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: MICRO-RETO -->
+    <section id="section-micro" class="space-y-6 step-hidden">
+        <img src="/respira.jpeg" alt="Movimiento consciente" class="section-image" onerror="this.style.display='none'">
+        <h2 class="text-2xl font-bold text-green-800 text-center mb-2">Micro-reto</h2>
+        <p class="text-xs text-gray-500 text-center mb-6">Movimiento + micro-reto por fase y día</p>
+
+        <!-- Fase 1 Micro-reto -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('micro-f1')" class="accordion-toggle">
+                <span>Fase 1 – BAJAR EL RUIDO (Días 1-7)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="micro-f1" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 1</strong><br>🚶 Movimiento: Paseo suave 10-15 min tras comida principal.<br>🎯 Micro-reto: 30 min sin móvil al despertar.</div>
+                <div class="phase-card"><strong>Día 2</strong><br>🚶 Movimiento: Paseo consciente sin auriculares (10 min).<br>🎯 Micro-reto: 1 comida sin pantallas.</div>
+                <div class="phase-card"><strong>Día 3</strong><br>🧘 Movimiento: Movilidad suave 8-10 min (cuello, hombros, cadera).<br>🎯 Micro-reto: 3 pausas respiratorias de 2 min.</div>
+                <div class="phase-card"><strong>Día 4</strong><br>🚶 Movimiento: Paseo post comida + estiramiento espalda 5 min.<br>🎯 Micro-reto: Cena antes de las 21:00.</div>
+                <div class="phase-card"><strong>Día 5</strong><br>🧘 Movimiento: Secuencia suave movilidad matinal (5-8 min).<br>🎯 Micro-reto: Comer sentada, sin multitarea.</div>
+                <div class="phase-card"><strong>Día 6</strong><br>🛌 Movimiento: Piernas en alto 5 min + respiración 4-6.<br>🎯 Micro-reto: Evitar multitarea en una actividad.</div>
+                <div class="phase-card"><strong>Día 7</strong><br>🚶 Movimiento: Paseo consciente 15 min en naturaleza si es posible.<br>🎯 Micro-reto: Evaluación semanal sin juicio.</div>
+            </div>
+        </div>
+
+        <!-- Fase 2 Micro-reto -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('micro-f2')" class="accordion-toggle">
+                <span>Fase 2 – DESINFLAMAR Y ESTABILIZAR (Días 8-14)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="micro-f2" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 8</strong><br>🚶 Paseo digestivo 15 min tras comida.<br>🎯 Micro-reto: 1 ración extra de verduras.</div>
+                <div class="phase-card"><strong>Día 9</strong><br>🏋️ Fuerza suave 12-15 min (sentadillas, pared, bandas).<br>🎯 Micro-reto: Proteína real en desayuno.</div>
+                <div class="phase-card"><strong>Día 10</strong><br>🚶 Paseo + 5 min movilidad cadera.<br>🎯 Micro-reto: Horarios estables de comida.</div>
+                <div class="phase-card"><strong>Día 11</strong><br>🧘 Movilidad + respiración 10 min.<br>🎯 Micro-reto: Añadir fermentado suave.</div>
+                <div class="phase-card"><strong>Día 12</strong><br>🏋️ Fuerza tren superior 12-15 min.<br>🎯 Micro-reto: Pantallas fuera 60 min antes de dormir.</div>
+                <div class="phase-card"><strong>Día 13</strong><br>🚶 Paseo consciente + 5 min estiramientos.<br>🎯 Micro-reto: Comer sin distracciones todo el día.</div>
+                <div class="phase-card"><strong>Día 14</strong><br>🧘 Movilidad restaurativa 10 min.<br>🎯 Micro-reto: Registrar perímetro abdominal y energía.</div>
+            </div>
+        </div>
+
+        <!-- Fase 3 Micro-reto -->
+        <div class="card p-4">
+            <button type="button" onclick="toggleAccordion('micro-f3')" class="accordion-toggle">
+                <span>Fase 3 – REPROGRAMAR Y CONSOLIDAR (Días 15-21)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <div id="micro-f3" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 15</strong><br>🏋️ Fuerza cuerpo completo 15 min.<br>🎯 Micro-reto: Desayunar en la primera hora.</div>
+                <div class="phase-card"><strong>Día 16</strong><br>☀ 10-15 min luz natural por la mañana.<br>🎯 Micro-reto: Pantallas fuera 1 h antes de dormir.</div>
+                <div class="phase-card"><strong>Día 17</strong><br>🚶 Paseo consciente sin móvil 20 min.<br>🎯 Micro-reto: Cena ligera y temprano.</div>
+                <div class="phase-card"><strong>Día 18</strong><br>🏋️ Fuerza tren inferior 15 min.<br>🎯 Micro-reto: Horarios consistentes.</div>
+                <div class="phase-card"><strong>Día 19</strong><br>🧘 Respiración 5-5 durante 5 min + movilidad.<br>🎯 Micro-reto: Gratitud escrita (3 frases).</div>
+                <div class="phase-card"><strong>Día 20</strong><br>🚶 Paseo suave al atardecer.<br>🎯 Micro-reto: Evaluación energética (inicio vs ahora).</div>
+                <div class="phase-card"><strong>Día 21</strong><br>🧘 Secuencia integradora (movilidad + respiración 10 min).<br>🎯 Micro-reto: Ritual de cierre escrito (3 cambios + 1 compromiso).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CIERRE NOCHE -->
+    <section id="section-night" class="space-y-6 step-hidden">
+        <img src="/noche.png" alt="Cierre noche" class="section-image" onerror="this.style.display='none'">
+        <div class="card p-8 text-center bg-[#fffbf0] border border-orange-50">
+            <h2 class="text-xl font-bold mb-2 text-orange-900">Activa tu Calma (4-7-8)</h2>
+            <p class="text-[10px] text-orange-700 mb-4 font-semibold uppercase tracking-wider">Dos series completas</p>
+            <div id="breathing-circle" class="breathing-circle shadow-inner">
+                <span id="breathing-text" class="text-xl font-bold text-orange-800">INICIAR</span>
+            </div>
+            <button onclick="startBreathing()" class="mt-8 btn-primary w-full shadow-lg bg-orange-600 hover:bg-orange-700 border-none">Respirar</button>
+        </div>
+        <div class="card p-6 bg-[#4a3728] text-[#efebe9] shadow-2xl border border-[#5d4037]">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="feather" class="w-5 h-5 text-orange-300"></i>
+                    <h2 class="text-xl font-bold tracking-tight">Vaciado Mental</h2>
+                </div>
+                <button onclick="clearBrainDump()" class="text-[10px] font-bold text-orange-200 border border-orange-200/30 px-3 py-1 rounded-full uppercase">Vaciar</button>
+            </div>
+            <textarea id="brain-dump-area" class="w-full h-44 bg-[#5d4037] text-[#fbe9e7] p-4 rounded-xl border border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400/30 text-sm placeholder-[#a1887f]" placeholder="Deja tus pensamientos aquí..."></textarea>
+            <div class="mt-4 p-3 bg-[#3e2723]/50 rounded-lg text-center">
+                <p class="text-xs text-orange-300 italic">"Y por hoy, me doy permiso para descansar."</p>
+            </div>
+        </div>
+        <div class="card p-6 bg-[#fff7ed] border border-orange-200">
+            <div class="flex items-center gap-2 mb-4">
+                <i data-lucide="sparkles" class="text-orange-500 w-5 h-5"></i>
+                <h2 class="text-lg font-bold text-orange-900">Frases para cerrar de día</h2>
+            </div>
+            <div class="space-y-3">
+                <div class="prompt-pill border-orange-100 bg-white/60"><p class="font-bold text-orange-800 text-[11px] uppercase">Si hay miedo</p><p class="italic text-gray-700">"Lo suelto y lo dejo ir. Estoy a salvo aquí."</p></div>
+                <div class="prompt-pill border-blue-100 bg-white/60"><p class="font-bold text-blue-800 text-[11px] uppercase">Si hay tareas pendientes</p><p class="italic text-gray-700">"Lo aparco solo por hoy. Mañana será otro día."</p></div>
+                <div class="prompt-pill border-green-100 bg-white/60"><p class="font-bold text-green-800 text-[11px] uppercase">Si no sabes la solución</p><p class="italic text-gray-700">"Agradezco mi capacidad; mañana seré capaz de solucionar."</p></div>
+                <div class="prompt-pill border-purple-100 bg-white/60"><p class="font-bold text-purple-800 text-[11px] uppercase">Si el día fue duro</p><p class="italic text-gray-700">"Agradezco lo bueno vivido y dejo ir lo malo con mi exhalación."</p></div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="mt-12 py-8 border-t border-gray-200 bg-gray-50">
+    <div class="flex justify-center mb-4">
+        <img src="/logo.png" alt="Epigenética Barcelona" class="max-h-20 w-auto opacity-95" />
+    </div>
+    <p class="text-xs text-gray-500 text-center">&copy; Epigenética Barcelona</p>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(s => s.classList.add('step-hidden'));
+        document.querySelectorAll('nav button').forEach(b => { b.classList.remove('tab-active'); b.classList.add('text-gray-500'); });
+        document.getElementById('section-' + id).classList.remove('step-hidden');
+        document.getElementById('nav-' + id).classList.add('tab-active');
+        document.getElementById('nav-' + id).classList.remove('text-gray-500');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleAccordion(id) {
+        var panel = document.getElementById(id);
+        panel.classList.toggle('open');
+    }
+
+    function startBreathing() {
+        var circle = document.getElementById('breathing-circle');
+        var text = document.getElementById('breathing-text');
+        var singleCycle = [
+            { text: 'Inhala', time: 4000, scale: 1.6, color: '#fff3e0' },
+            { text: 'Mantén', time: 7000, scale: 1.6, color: '#ffe0b2' },
+            { text: 'Exhala', time: 8000, scale: 1.0, color: '#ffffff' }
+        ];
+        var sequence = singleCycle.concat(singleCycle);
+        var i = 0;
+        function run() {
+            if (i >= sequence.length) { text.innerText = "CALMA LOGRADA"; circle.style.backgroundColor = 'rgba(255, 167, 38, 0.1)'; return; }
+            var step = sequence[i];
+            var series = Math.floor(i / 3) + 1;
+            text.innerText = step.text + ' (' + series + '/2)';
+            circle.style.transform = 'scale(' + step.scale + ')';
+            circle.style.backgroundColor = step.color;
+            setTimeout(function() { i++; run(); }, step.time);
+        }
+        run();
+    }
+
+    function clearBrainDump() {
+        document.getElementById('brain-dump-area').value = "";
+    }
+</script>
+</body>
+</html>
