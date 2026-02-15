@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso - Epigenética Barcelona</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .box {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      padding: 2rem;
+      width: 100%;
+      max-width: 360px;
+    }
+    h1 { font-size: 1.25rem; color: #1f2937; margin-bottom: 1.5rem; text-align: center; }
+    label { display: block; font-size: 0.875rem; color: #4b5563; margin-bottom: 0.25rem; }
+    input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    input:focus { outline: none; border-color: #4caf50; }
+    button {
+      width: 100%;
+      padding: 0.875rem;
+      background: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #43a047; }
+    .error { color: #dc2626; font-size: 0.875rem; margin-top: 0.5rem; text-align: center; display: none; }
+    .error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Acceso a la zona privada</h1>
+    <form id="form" method="get">
+      <label for="user">Usuario</label>
+      <input type="text" id="user" name="user" autocomplete="username" placeholder="Usuario">
+      <label for="pass">Contraseña</label>
+      <input type="password" id="pass" name="pass" autocomplete="current-password" placeholder="Contraseña">
+      <p class="error" id="err">Usuario o contraseña incorrectos.</p>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script>
+    (function () {
+      // Lista de usuarios permitidos (usuario + hash SHA-256 de la contraseña).
+      var USERS = [
+        { user: 'epigenetica1', passHash: 'f4b839ac2ddfda9c5be9bb4165faf0855f0f95998faf6e52f387157ad71f1742' },
+        { user: 'epigenetica2', passHash: '73d1f21d692412e1274a1e770485cb5e86eff8d90766bffdf1b65488d43d6d93' },
+        { user: 'epigenetica3', passHash: '5ddfea72069218d34d8bf6870c02404c75817641b0c101d07950fe6dab5bbd92' },
+        { user: 'epigenetica4', passHash: 'ed06e356f827a8237dc6e142c0384cb7bdaa24943501d3b205b6f4f5f6c77091' },
+        { user: 'epigenetica5', passHash: 'e03924c1b636d0001e2294fc4009344ed727f07e9b15f6287c729362741e4b0e' },
+        { user: 'epigenetica6', passHash: '9fccd1ecbc37acf2e6e430de93347b1f2432b24c559a644ff109ff449b7623c0' }
+      ];
+      var AUTH_KEY = 'epigenetica_auth';
+
+      function toHex(buffer) {
+        return Array.from(new Uint8Array(buffer))
+          .map(function (b) { return b.toString(16).padStart(2, '0'); })
+          .join('');
+      }
+
+      document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var user = (document.getElementById('user').value || '').trim();
+        var pass = document.getElementById('pass').value;
+
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode(pass))
+          .then(function (hash) {
+            var passHex = toHex(hash);
+            var found = USERS.some(function (u) { return u.user === user && u.passHash === passHex; });
+            if (found) {
+              sessionStorage.setItem(AUTH_KEY, '1');
+              var params = new URLSearchParams(window.location.search);
+              var next = params.get('next');
+              window.location.replace(next || '/');
+            } else {
+              document.getElementById('err').classList.add('visible');
+            }
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
