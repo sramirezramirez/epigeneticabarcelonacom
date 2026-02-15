@@ -285,35 +285,66 @@
         <img src="/noche.png" alt="Cierre noche" class="section-image" onerror="this.style.display='none'">
         <div class="card p-8 text-center bg-[#fffbf0] border border-orange-50">
             <h2 class="text-xl font-bold mb-2 text-orange-900">Activa tu Calma (4-7-8)</h2>
-            <p class="text-[10px] text-orange-700 mb-4 font-semibold uppercase tracking-wider">Dos series completas</p>
+            <p class="text-[10px] text-orange-700 mb-4 font-semibold uppercase tracking-wider">Tres series completas</p>
             <div id="breathing-circle" class="breathing-circle shadow-inner">
                 <span id="breathing-text" class="text-xl font-bold text-orange-800">INICIAR</span>
             </div>
             <button onclick="startBreathing()" class="mt-8 btn-primary w-full shadow-lg bg-orange-600 hover:bg-orange-700 border-none">Respirar</button>
         </div>
-        <div class="card p-6 bg-[#4a3728] text-[#efebe9] shadow-2xl border border-[#5d4037]">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="feather" class="w-5 h-5 text-orange-300"></i>
-                    <h2 class="text-xl font-bold tracking-tight">Vaciado Mental</h2>
-                </div>
-                <button onclick="clearBrainDump()" class="text-[10px] font-bold text-orange-200 border border-orange-200/30 px-3 py-1 rounded-full uppercase">Vaciar</button>
+        <!-- Brain Dumps y Frases de cierre por Fases -->
+        <div class="card p-4">
+            <h2 class="text-lg font-bold text-orange-900 mb-3 flex items-center gap-2">
+                <i data-lucide="feather" class="w-5 h-5 text-orange-500"></i>
+                Brain Dumps y frases de cierre
+            </h2>
+            <p class="text-xs text-gray-600 mb-4">Elige tu día y escribe. Cada día tiene su prompt y su frase para cerrar.</p>
+
+            <!-- Fase 1 -->
+            <button type="button" onclick="toggleAccordion('night-f1')" class="accordion-toggle mt-2">
+                <span>Fase 1 – BAJAR EL RUIDO (Días 1-7)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <p class="text-[10px] text-gray-500 mt-1 px-2">Intención: seguridad interna, bajar alerta, “volver al cuerpo”.</p>
+            <div id="night-f1" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 1</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy mi mente está cargando…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Ahora puedo soltarlo por hoy.»</em></div></div>
+                <div class="phase-card"><strong>Día 2</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> 3 columnas: Pendiente / Preocupación / Solución mínima<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Hoy hice lo suficiente para mi cuerpo.»</em></div></div>
+                <div class="phase-card"><strong>Día 3</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Lo que necesito que alguien entienda de mí es…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«No tengo que demostrar nada para merecer calma.»</em></div></div>
+                <div class="phase-card"><strong>Día 4</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Lo que me activó hoy fue… y mi cuerpo respondió con…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Puedo responder más lento, y sigo estando a salvo.»</em></div></div>
+                <div class="phase-card"><strong>Día 5</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy me sostuve cuando…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Mi sistema nervioso aprende con amabilidad.»</em></div></div>
+                <div class="phase-card"><strong>Día 6</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Si mi cansancio pudiera hablar, diría…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Escucharme es una forma de cuidarme.»</em></div></div>
+                <div class="phase-card"><strong>Día 7 (cierre semana)</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Esta semana noto…» (energía / sueño / digestión / ánimo)<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Progreso es volver, no hacerlo perfecto.»</em></div></div>
             </div>
-            <textarea id="brain-dump-area" class="w-full h-44 bg-[#5d4037] text-[#fbe9e7] p-4 rounded-xl border border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400/30 text-sm placeholder-[#a1887f]" placeholder="Deja tus pensamientos aquí..."></textarea>
-            <div class="mt-4 p-3 bg-[#3e2723]/50 rounded-lg text-center">
-                <p class="text-xs text-orange-300 italic">"Y por hoy, me doy permiso para descansar."</p>
+
+            <!-- Fase 2 -->
+            <button type="button" onclick="toggleAccordion('night-f2')" class="accordion-toggle mt-3">
+                <span>Fase 2 – DESINFLAMAR Y ESTABILIZAR (Días 8-14)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <p class="text-[10px] text-gray-500 mt-1 px-2">Intención: menos inflamación, más estabilidad (glucosa, intestino, mente).</p>
+            <div id="night-f2" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 8</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy mi cuerpo se sintió más ligero cuando…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Lo simple también es medicina.»</em></div></div>
+                <div class="phase-card"><strong>Día 9</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy elegí cuidarme así…» (3 decisiones concretas)<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Cada elección es una señal de equilibrio.»</em></div></div>
+                <div class="phase-card"><strong>Día 10</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Mi hambre hoy fue…» (física / emocional / mental)<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Puedo nutrirme sin castigarme.»</em></div></div>
+                <div class="phase-card"><strong>Día 11</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Lo que mi digestión me está enseñando es…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Mi cuerpo me habla; yo aprendo a escuchar.»</em></div></div>
+                <div class="phase-card"><strong>Día 12</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy mi energía subió cuando…» / «Bajó cuando…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Yo puedo crear estabilidad paso a paso.»</em></div></div>
+                <div class="phase-card"><strong>Día 13</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy suelto la necesidad de…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«No necesito control: necesito regulación.»</em></div></div>
+                <div class="phase-card"><strong>Día 14 (cierre semana)</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Esta semana mi inflamación cambió así…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Mi cuerpo responde cuando yo lo trato con respeto.»</em></div></div>
             </div>
-        </div>
-        <div class="card p-6 bg-[#fff7ed] border border-orange-200">
-            <div class="flex items-center gap-2 mb-4">
-                <i data-lucide="sparkles" class="text-orange-500 w-5 h-5"></i>
-                <h2 class="text-lg font-bold text-orange-900">Frases para cerrar de día</h2>
-            </div>
-            <div class="space-y-3">
-                <div class="prompt-pill border-orange-100 bg-white/60"><p class="font-bold text-orange-800 text-[11px] uppercase">Si hay miedo</p><p class="italic text-gray-700">"Lo suelto y lo dejo ir. Estoy a salvo aquí."</p></div>
-                <div class="prompt-pill border-blue-100 bg-white/60"><p class="font-bold text-blue-800 text-[11px] uppercase">Si hay tareas pendientes</p><p class="italic text-gray-700">"Lo aparco solo por hoy. Mañana será otro día."</p></div>
-                <div class="prompt-pill border-green-100 bg-white/60"><p class="font-bold text-green-800 text-[11px] uppercase">Si no sabes la solución</p><p class="italic text-gray-700">"Agradezco mi capacidad; mañana seré capaz de solucionar."</p></div>
-                <div class="prompt-pill border-purple-100 bg-white/60"><p class="font-bold text-purple-800 text-[11px] uppercase">Si el día fue duro</p><p class="italic text-gray-700">"Agradezco lo bueno vivido y dejo ir lo malo con mi exhalación."</p></div>
+
+            <!-- Fase 3 -->
+            <button type="button" onclick="toggleAccordion('night-f3')" class="accordion-toggle mt-3">
+                <span>Fase 3 – REPROGRAMAR Y CONSOLIDAR (Días 15-21)</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+            <p class="text-[10px] text-gray-500 mt-1 px-2">Intención: hábitos que se quedan, ritmo circadiano, cortisol más estable.</p>
+            <div id="night-f3" class="accordion-panel">
+                <div class="phase-card mt-2"><strong>Día 15</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy me demostré que puedo…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«La constancia es más poderosa que la intensidad.»</em></div></div>
+                <div class="phase-card"><strong>Día 16</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy el descanso significó…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Descansar también es avanzar.»</em></div></div>
+                <div class="phase-card"><strong>Día 17</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy mi mente quiso correr, y yo elegí…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Puedo ir más despacio y llegar mejor.»</em></div></div>
+                <div class="phase-card"><strong>Día 18</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Lo que quiero sostener de este reset es…»<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Elijo lo que me sostiene.»</em></div></div>
+                <div class="phase-card"><strong>Día 19</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Hoy agradezco que mi cuerpo…» (3 frases cortas)<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Mi cuerpo está de mi lado.»</em></div></div>
+                <div class="phase-card"><strong>Día 20</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> «Señales de equilibrio que noto…» (sueño, digestión, hambre, ánimo)<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Reconozco mis señales: eso es poder.»</em></div></div>
+                <div class="phase-card"><strong>Día 21 (ritual de cierre)</strong><br><span class="text-gray-600 text-sm">Brain Dump:</span> 3 cambios / 1 hábito que se queda / 1 apoyo que necesito<br><textarea class="w-full mt-2 p-2 rounded-lg border border-gray-200 text-sm h-20" placeholder="Escribe aquí..."></textarea><div class="mt-2 p-2 bg-orange-50 rounded-lg text-center"><span class="text-xs font-semibold text-orange-800">Frase de cierre:</span> <em>«Esto no termina: se integra.»</em></div></div>
             </div>
         </div>
     </section>
@@ -352,22 +383,18 @@
             { text: 'Mantén', time: 7000, scale: 1.6, color: '#ffe0b2' },
             { text: 'Exhala', time: 8000, scale: 1.0, color: '#ffffff' }
         ];
-        var sequence = singleCycle.concat(singleCycle);
+        var sequence = singleCycle.concat(singleCycle).concat(singleCycle);
         var i = 0;
         function run() {
             if (i >= sequence.length) { text.innerText = "CALMA LOGRADA"; circle.style.backgroundColor = 'rgba(255, 167, 38, 0.1)'; return; }
             var step = sequence[i];
             var series = Math.floor(i / 3) + 1;
-            text.innerText = step.text + ' (' + series + '/2)';
+            text.innerText = step.text + ' (' + series + '/3)';
             circle.style.transform = 'scale(' + step.scale + ')';
             circle.style.backgroundColor = step.color;
             setTimeout(function() { i++; run(); }, step.time);
         }
         run();
-    }
-
-    function clearBrainDump() {
-        document.getElementById('brain-dump-area').value = "";
     }
 </script>
 </body>
