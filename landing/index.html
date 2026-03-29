@@ -142,14 +142,14 @@
         <div class="container setup-grid reverse">
             <div class="setup-image glass-card">
                 <div class="mockup-img profile-img profile-photo-frame">
-                    <img id="profile-photo" src="/foto_profesional_Sandra_Ramirez.png" alt="Sandra Iliana Ramírez, especialista en nutrición, epigenética y salud integrativa" class="profile-photo" width="640" height="800" loading="eager" decoding="async">
+                    <img id="profile-photo" src="/foto_profesional_Sandra_Ramirez.png?v=2" alt="Sandra Iliana Ramírez, especialista en nutrición, epigenética y salud integrativa" class="profile-photo" width="640" height="800" loading="eager" decoding="async">
                     <script>
                     (function () {
                       var img = document.getElementById('profile-photo');
                       if (!img) return;
                       var isFile = location.protocol === 'file:';
                       var prefix = isFile ? (document.documentElement.getAttribute('data-profile-file-prefix') || '../') : '/';
-                      img.src = prefix + 'foto_profesional_Sandra_Ramirez.png';
+                      img.src = prefix + 'foto_profesional_Sandra_Ramirez.png?v=2';
                       img.addEventListener('error', function onFail() {
                         img.removeEventListener('error', onFail);
                         img.src = prefix + 'foto_profesional_Sandra_Ramirez.svg';
@@ -253,18 +253,17 @@
                     <h3>Entiende tu Microbiota Intestinal</h3>
                     <p>Curso rápido de 2 horas para aprender a blindar tu sistema inmune desde el estómago.</p>
                     <div class="price-small">49€</div>
-                    <!-- Botón directo a pago -->
-                    <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-secondary w-100" target="_blank" rel="noopener noreferrer">Acceder a la Clase</a>
+                    <span class="btn-secondary w-100" style="display: block; opacity: 0.88; cursor: default; pointer-events: none;">Próximamente</span>
                 </div>
 
                 <!-- Producto 3 (Taller Sistema Parasimpático) -->
                 <div class="card glass-card">
                     <div class="resource-banner" style="background: rgba(86, 197, 182, 0.1); color: #56c5b6; border-color: rgba(86, 197, 182, 0.2);">🎟️ Taller Inmersivo</div>
                     <h3>Desconecta el Estrés: Activa tu Sanación y Regeneración</h3>
-                    <p>Dominarás los comandos para encender tu sistema parasimpático combinando <em>mindfulness</em> y estiramientos. Desinflama, regula el cortisol y reactiva tu digestión recuperando la calma celular desde la primera sesión.</p>
-                    <div class="price-small">95€</div>
-                    <!-- Botón directo a pago -->
-                    <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-secondary w-100 glow-effect text-center" style="border-color: #56c5b6; color: #56c5b6;" target="_blank" rel="noopener noreferrer">Reservar mi espacio de calma</a>
+                    <p><strong>Próxima sesión: 10 de abril.</strong> Dominarás los comandos para encender tu sistema parasimpático combinando <em>mindfulness</em> y estiramientos. Desinflama, regula el cortisol y reactiva tu digestión recuperando la calma celular desde la primera sesión.</p>
+                    <div class="price-small">20€</div>
+                    <p class="resource-meta" style="margin-top: -0.5rem; margin-bottom: 1.25rem; font-size: 0.95rem; color: var(--text-muted);">Sesión de 120 minutos de duración</p>
+                    <span class="btn-secondary w-100 glow-effect text-center" style="display: block; border-color: #56c5b6; color: #56c5b6; opacity: 0.9; cursor: default; pointer-events: none;">Próximamente 10 abril</span>
                 </div>
             </div>
         </div>
@@ -273,7 +272,6 @@
     <!-- Social Proof -->
     <section class="testimonials-section container" id="testimonios">
         <h2 class="text-center">Historias de transformación</h2>
-        <p class="text-center subtitle testimonial-intro">Añadir 2 o 3 reseñas o testimonios reales de pacientes destacando el impacto de tus planes. Las siguientes son ejemplos orientativos.</p>
         <div class="cards-grid">
             <div class="card glass-card testimonial">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -339,7 +337,7 @@
                 <p>📍 C/ Mina 43, L'Hospitalet de Llobregat, 08906 (Barcelona)</p>
                 <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Mina+43+08906+L'Hospitalet+de+Llobregat" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
                 <p>📞 <a href="tel:+34622335751">+34 622 335 751</a> (WhatsApp disponible)</p>
-                <p>✉️ <a href="mailto:sandra.iliana.ramirez@gmail.com">sandra.iliana.ramirez@gmail.com</a></p>
+                <p>✉️ <a href="mailto:epigeneticabarcelona@gmail.com">epigeneticabarcelona@gmail.com</a></p>
             </div>
             <div>
                 <h4>Servicios</h4>
@@ -367,6 +365,7 @@
         📲 ¿Dudas? WhatsApp
     </a>
     <script src="/stripe-recetario.js" defer></script>
+    <script src="/activity-toasts.js" defer></script>
 
 </body>
 </html>

@@ -983,6 +983,45 @@ section {
 
 /* 
    ============================================
+   ACTIVITY TOASTS (mensajes de ejemplo, solo visual)
+   ============================================
+*/
+.activity-toast {
+    position: fixed;
+    bottom: 5.25rem;
+    left: 1rem;
+    max-width: 260px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    padding: 0.45rem 0.65rem;
+    border-radius: 8px;
+    background: rgba(26, 32, 44, 0.92);
+    color: #edf2f7;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.activity-toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .activity-toast {
+        max-width: calc(100vw - 5.5rem);
+        font-size: 0.68rem;
+        bottom: 5rem;
+        left: 0.65rem;
+    }
+}
+
+/* 
+   ============================================
    WHATSAPP BUTTON
    ============================================
 */
