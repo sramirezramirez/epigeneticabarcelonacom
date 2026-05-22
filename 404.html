@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Redirigiendo… | Epigenética BCN</title>
+  <script>
+    (function () {
+      var path = location.pathname.replace(/\/$/, '') || '';
+      var map = {
+        '/privacidad': '/privacidad/',
+        '/aviso-legal': '/aviso-legal/',
+        '/cookies': '/cookies/',
+        '/terminos': '/terminos/'
+      };
+      if (map[path]) {
+        location.replace(map[path] + location.search + location.hash);
+        return;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p style="font-family:system-ui,sans-serif;padding:2rem;color:#2d3748;">
+    Página no encontrada.
+    <a href="/">Volver al inicio</a>
+  </p>
+</body>
+</html>

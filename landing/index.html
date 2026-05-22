@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/landing/styles.css">
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="/ga4-config.js"></script>
+    <script src="/ga4-loader.js"></script>
+    <script src="/cookie-consent.js" defer></script>
 </head>
 <body>
 
@@ -26,7 +29,7 @@
                     <li><a href="#faqs">FAQs</a></li>
                 </ul>
             </nav>
-            <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary-small" target="_blank" rel="noopener noreferrer">Reserva tu Evaluación Integral</a>
+            <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary-small" target="_blank" rel="noopener noreferrer" data-track="cta_stripe_150_click">Reserva tu Evaluación Integral</a>
         </div>
     </header>
 
@@ -38,7 +41,7 @@
             <h1 class="hero-title hero-title--adn">Evaluación Integral de Salud Celular y Longevidad</h1>
             <p class="hero-subtitle hero-subtitle--adn">Un enfoque basado en epigenética, medición antioxidante y hábitos inteligentes para mujeres que quieren prevenir antes de que aparezcan los síntomas.</p>
             <p class="hero-micro">No es una consulta médica ni una charla comercial.</p>
-            <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary glow-effect" target="_blank" rel="noopener noreferrer">Reserva tu Evaluación Integral</a>
+            <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary glow-effect" target="_blank" rel="noopener noreferrer" data-track="cta_stripe_150_click">Reserva tu Evaluación Integral</a>
             <p class="hero-guarantee">✨ Basado en Biotecnología Alemana S-Drive</p>
         </div>
     </section>
@@ -174,7 +177,7 @@
                 </ul>
                 <p>Hoy, acompaño a personas que quieren dejar de sobrevivir… y empezar a optimizar su vida desde dentro.</p>
                 <p class="authority-closing"><strong>Si has llegado hasta aquí, probablemente tu cuerpo ya te está hablando. La pregunta es: ¿Estás listo para escucharlo y transformarlo?</strong></p>
-                <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary glow-effect" target="_blank" rel="noopener noreferrer">Agenda tu sesión conmigo</a>
+                <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" class="btn-primary glow-effect" target="_blank" rel="noopener noreferrer" data-track="cta_stripe_150_click">Agenda tu sesión conmigo</a>
             </div>
         </div>
     </section>
@@ -205,7 +208,7 @@
                     <p class="order-bump-text">Al procesar el pago podrás marcar la opción de <strong>15€</strong> para tener la <strong>guía perfecta</strong> para llevar a cabo tu protocolo estructurado a medida, con <strong>recetas completas</strong> que facilitan tu optimización.</p>
                 </div>
                 <p class="quote" style="font-size: 1.05rem; margin-bottom: 1.5rem;">"Tu biología no se equivoca; se adapta. Empieza a darle lo que necesita."</p>
-                <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" target="_blank" rel="noopener noreferrer" class="btn-secondary w-100 text-center btn-cta-primary">Iniciar mi Evaluación Epigenética ahora (150€)</a>
+                <a href="https://buy.stripe.com/bJe5kF1FV0OK3S9cPQ4Ja01" target="_blank" rel="noopener noreferrer" class="btn-secondary w-100 text-center btn-cta-primary" data-track="cta_stripe_150_click">Iniciar mi Evaluación Epigenética ahora (150€)</a>
                 <p class="secure-checkout mt-2">Pago seguro con Stripe Checkout.</p>
             </div>
 
@@ -227,6 +230,7 @@
                 <p class="quote" style="font-size: 1.05rem; margin-bottom: 1.5rem;">"Yo te ayudaré a diseñar el mapa de ruta hacia tu bienestar real."</p>
                 <a href="https://buy.stripe.com/dRm9AVacr0OKdsJ6rs4Ja02" target="_blank" rel="noopener noreferrer" class="btn-primary glow-effect btn-large w-100 text-center">Reservar Test + Sesión 1:1</a>
                 <p class="secure-checkout mt-2">🔒 Pago automatizado y seguro.</p>
+                <p class="secure-checkout mt-2" style="margin-top: 0.65rem;">Tras completar el pago, <a href="/agendar-sesion-1a1.html" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">reserva tu sesión 1:1 en el calendario</a>.</p>
             </div>
         </div>
     </section>
@@ -348,9 +352,10 @@
             <div>
                 <h4>Legal</h4>
                 <!-- Si la landing no está en la raíz del dominio, usa rutas absolutas tipo https://epigeneticabarcelona.com/privacidad -->
-                <a href="/privacidad">Política de Privacidad</a>
-                <a href="/aviso-legal">Aviso Legal</a>
-                <a href="/cookies">Política de Cookies</a>
+                <a href="/privacidad/">Política de Privacidad</a>
+                <a href="/aviso-legal/">Aviso Legal</a>
+                <a href="/cookies/">Política de Cookies</a>
+                <a href="/terminos/">Términos y condiciones</a>
                 <a href="/terminos">Términos y condiciones</a>
             </div>
         </div>
@@ -366,6 +371,7 @@
     </a>
     <script src="/stripe-recetario.js" defer></script>
     <script src="/activity-toasts.js" defer></script>
+    <script src="/cta-tracking.js" defer></script>
 
 </body>
 </html>
